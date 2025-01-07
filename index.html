@@ -1,0 +1,666 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>아 나 웹 개발하기 귀찮아요;; 그만 하고 싶어 너무 많이 했어 하기시러ㅓㅓㅓㅓㅓㅓㅓㅓㅓㅓ</title>
+    <style>
+        * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f1f5f8;
+    color: #333;
+    line-height: 1.7;
+    animation: fadeIn 2s ease-out;
+}
+
+header {
+    background-color: #2d3e50;
+    color: white;
+    text-align: center;
+    padding: 40px 20px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    animation: slideDown 1s ease-out;
+}
+
+header h1 {
+    font-size: 36px;
+    letter-spacing: 1px;
+}
+
+header p {
+    font-size: 18px;
+    font-weight: 300;
+}
+
+nav {
+    display: flex;
+    justify-content: center;
+    background-color: #34495e;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    animation: fadeIn 2s ease-out 0.5s;
+}
+
+nav a {
+    color: white;
+    padding: 18px 24px;
+    text-decoration: none;
+    font-size: 18px;
+    text-align: center;
+    letter-spacing: 1px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+nav a:hover {
+    background-color: #ecf0f1;
+    color: #2d3e50;
+    transform: scale(1.05);
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 40px;
+    animation: fadeIn 2s ease-out 1s;
+}
+
+.section {
+    margin-bottom: 60px;
+    opacity: 0;
+    animation: fadeIn 1.5s ease-out forwards;
+}
+
+.section h2 {
+    font-size: 36px;
+    color: #2d3e50;
+    font-weight: bold;
+    border-bottom: 3px solid #2d3e50;
+    padding-bottom: 10px;
+    margin-bottom: 30px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.section h3 {
+    font-size: 28px;
+    color: #34495e;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    font-weight: 500;
+}
+
+.section p {
+    font-size: 18px;
+    color: #555;
+    line-height: 1.8;
+    margin-bottom: 20px;
+}
+
+.code-example {
+    background-color: #f7f7f7;
+    border-left: 6px solid #2d3e50;
+    padding: 20px;
+    margin-top: 20px;
+    font-family: 'Consolas', monospace;
+    font-size: 18px;
+    white-space: pre-wrap;
+    border-radius: 6px;
+    color: #333;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.code-example:hover {
+    transform: scale(1.02);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.note {
+    font-size: 16px;
+    color: #7f8c8d;
+    font-style: italic;
+    margin-top: 15px;
+}
+
+footer {
+    background-color: #2d3e50;
+    color: white;
+    text-align: center;
+    padding: 20px;
+    margin-top: 40px;
+    box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.1);
+    animation: slideUp 1s ease-out;
+}
+
+.highlight {
+    background-color: #ffeb3b;
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-weight: bold;
+}
+
+.example {
+    margin-top: 20px;
+    font-size: 18px;
+    color: #2d3e50;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes slideDown {
+    from {
+        transform: translateY(-50px);
+    }
+    to {
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideUp {
+    from {
+        transform: translateY(50px);
+    }
+    to {
+        transform: translateY(0);
+    }
+}
+
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+    /* 네비게이션 메뉴 가로 배치 */
+    nav {
+        display: flex;
+        justify-content: space-around;
+        background-color: #34495e;
+        box-shadow: none;
+        padding: 10px 0;
+        position: relative;
+        width: 100%;
+    }
+
+    nav a {
+        padding: 10px 20px;
+        font-size: 14px;
+        text-align: center;
+        color: white;
+        text-decoration: none;
+        display: inline-block;
+        transition: background-color 0.3s ease, transform 0.3s ease;
+        letter-spacing: 1px;
+    }
+
+    nav a:hover {
+        background-color: #7f8c8d;
+        color: #2d3e50;
+        transform: scale(1.05);
+    }
+
+    /* 제목 및 서브 제목 */
+    header {
+        text-align: center;
+        padding: 20px 15px;
+        background-color: #2d3e50;
+        color: white;
+        margin-bottom: 20px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    header h1 {
+        font-size: 30px;
+        letter-spacing: 1px;
+    }
+
+    header p {
+        font-size: 16px;
+        font-weight: 300;
+    }
+
+    /* 메인 컨텐츠 */
+    .container {
+        padding: 15px;
+        margin-top: 80px;
+    }
+
+    .section h2 {
+        font-size: 24px;
+        color: #2d3e50;
+        font-weight: bold;
+        border-bottom: 3px solid #2d3e50;
+        padding-bottom: 10px;
+        margin-bottom: 20px;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+    }
+
+    .section h3 {
+        font-size: 20px;
+    }
+
+    .section p {
+        font-size: 14px;
+        line-height: 1.6;
+        margin-bottom: 20px;
+    }
+
+    .code-example {
+        background-color: #f7f7f7;
+        border-left: 6px solid #2d3e50;
+        padding: 15px;
+        margin-top: 20px;
+        font-family: 'Consolas', monospace;
+        font-size: 14px;
+        white-space: pre-wrap;
+        border-radius: 6px;
+        color: #333;
+    }
+
+    .code-example:hover {
+        transform: scale(1.02);
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    }
+
+    /* 푸터 */
+    footer {
+        background-color: #2d3e50;
+        color: white;
+        text-align: center;
+        padding: 20px;
+        margin-top: 30px;
+        box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    /* 다크 모드 */
+    body.dark-mode {
+        background-color: #333;
+        color: #f1f5f8;
+    }
+
+    body.dark-mode header {
+        background-color: #1c2b36;
+    }
+
+    body.dark-mode nav {
+        background-color: #2c3e50;
+    }
+
+    body.dark-mode .container {
+        background-color: #444;
+    }
+
+    body.dark-mode .code-example {
+        background-color: #555;
+        color: #f1f5f8;
+    }
+
+    body.dark-mode footer {
+        background-color: #1c2b36;
+    }
+
+    body.dark-mode a {
+        color: #ecf0f1;
+    }
+
+    body.dark-mode .highlight {
+        background-color: #f39c12;
+    }
+
+    body.dark-mode .note {
+        color: #bdc3c7;
+    }
+
+    body.dark-mode nav a:hover {
+        background-color: #7f8c8d;
+        color: #2d3e50;
+    }
+
+    body.dark-mode .code-example:hover {
+        transform: scale(1.02);
+        box-shadow: 0 4px 15px rgba(255, 255, 255, 0.1);
+    }
+
+    /* 모바일에서 네비게이션 바 고정 스크롤에 따라 */
+    nav {
+        position: sticky;
+        top: 0;
+        z-index: 999;
+    }
+
+    /* 라이트/밤 모드 전환 버튼 숨기기 */
+    .mode-toggle {
+        display: none;
+    }
+}
+
+
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Python Concept Guide</h1>
+    <p>A detailed guide for beginners with Python</p>
+</header>
+
+<nav>
+    <a href="#introduction">소개</a>
+    <a href="#variables">변수와 자료형</a>
+    <a href="#functions">함수</a>
+    <a href="#loops">반복문</a>
+    <a href="#conditions">조건문</a>
+    <a href="#classes">클래스와 객체지향 프로그래밍</a>
+</nav>
+
+<div class="container">
+
+    <section id="introduction" class="section">
+        <h2>파이썬 소개</h2>
+        <p>파이썬은 <strong>높은 수준의 인터프리터 언어</strong>로, 다양한 분야에서 활용됩니다. 특히 웹 개발, 데이터 과학, 인공지능, 자동화 스크립트 등 여러 영역에서 사용됩니다. 파이썬의 가장 큰 특징은 가독성이 매우 뛰어나며, 문법이 간단하여 초보자도 쉽게 배우고 사용할 수 있다는 것입니다.</p>
+        <p><strong>파이썬의 주요 특징</strong></p>
+        <ul>
+            <li>간결하고 직관적인 문법</li>
+            <li>강력한 표준 라이브러리 제공</li>
+            <li>다양한 커뮤니티와 문서화된 자료들</li>
+            <li>다양한 운영체제에서 사용 가능</li>
+        </ul>
+        <p class="note">참고: 파이썬은 Guido van Rossum에 의해 1991년에 처음 출시되었습니다.</p>
+    </section>
+
+    <section id="variables" class="section">
+        <h2>변수와 자료형</h2>
+        <p>파이썬에서 변수는 데이터를 저장하는 이름입니다. 파이썬은 <span class="highlight">동적 타이핑</span> 언어로, 변수의 타입을 명시하지 않아도 됩니다. 변수에 저장된 데이터는 <strong>자료형</strong>에 따라 다르게 처리됩니다.</p>
+
+        <h3>자료형 종류</h3>
+        <ul>
+            <li><strong>정수형 (Integer)</strong>: 숫자, 예: 10, -5</li>
+            <li><strong>실수형 (Float)</strong>: 소수점을 포함한 숫자, 예: 3.14, -0.001</li>
+            <li><strong>문자열 (String)</strong>: 문자들의 집합, 예: "Hello", "Python"</li>
+            <li><strong>불린형 (Boolean)</strong>: 참(True) 또는 거짓(False)</li>
+        </ul>
+
+        <h3>변수 예시</h3>
+        <div class="code-example">
+            x = 10  # 정수형<br>
+            y = 3.14  # 실수형<br>
+            name = "파이썬"  # 문자열<br>
+            is_active = True  # 불린형
+        </div>
+        <p class="note">참고: 파이썬에서 변수명은 문자, 숫자, 밑줄(_)을 사용할 수 있으며 숫자로 시작할 수 없습니다.</p>
+    </section>
+
+    <section id="functions" class="section">
+        <h2>함수</h2>
+        <p>함수는 <strong>재사용 가능한 코드 블록</strong>으로, 특정 작업을 수행하는데 사용됩니다. 함수를 정의할 때는 <code>def</code> 키워드를 사용하며, 입력값을 받아 결과를 반환할 수 있습니다.</p>
+
+        <h3>함수 정의 예시</h3>
+        <div class="code-example">
+            def greet(name):<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;return "안녕하세요, " + name<br><br>
+            print(greet("홍길동"))
+        </div>
+
+        <p>위 코드에서는 <strong>greet</strong>라는 함수를 정의하여, 이름을 입력받고 인사말을 반환합니다.</p>
+        <p class="note">참고: 파이썬에서는 함수의 매개변수에 기본값을 설정할 수도 있습니다.</p>
+    </section>
+
+    <section id="loops" class="section">
+        <h2>반복문</h2>
+        <p>반복문은 코드 블록을 반복해서 실행할 때 사용됩니다. 주로 사용되는 반복문은 <code>for</code>문과 <code>while</code>문입니다.</p>
+
+        <h3>for문 예시</h3>
+        <div class="code-example">
+            for i in range(5):<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;print(i)
+        </div>
+        <p>위의 예시에서는 <code>range(5)</code>를 사용하여 0부터 4까지의 값을 출력합니다.</p>
+
+        <h3>while문 예시</h3>
+        <div class="code-example">
+            i = 0<br>
+            while i < 5:<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;print(i)<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;i += 1
+        </div>
+
+        <p class="note">참고: <code>while</code>문은 조건이 참인 동안 반복합니다.</p>
+    </section>
+
+    <section id="conditions" class="section">
+        <h2>조건문</h2>
+        <p>조건문은 프로그램 흐름을 제어할 때 사용됩니다. 파이썬에서는 <code>if</code>, <code>elif</code>, <code>else</code>를 사용하여 조건을 분기할 수 있습니다.</p>
+
+        <h3>조건문 예시</h3>
+        <div class="code-example">
+            x = 10<br>
+            if x > 0:<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;print("x는 양수입니다.")<br>
+            elif x == 0:<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;print("x는 0입니다.")<br>
+            else:<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;print("x는 음수입니다.")
+        </div>
+
+        <p class="note">참고: 조건문은 여러 가지 조건을 분기할 때 유용하게 사용됩니다.</p>
+    </section>
+
+    <section id="classes" class="section">
+        <h2>클래스와 객체지향 프로그래밍</h2>
+        <p>파이썬에서는 객체지향 프로그래밍(OOP)을 지원하며, 이를 통해 클래스와 객체를 사용하여 프로그램을 구조적으로 설계할 수 있습니다.</p>
+
+        <h3>클래스 정의 예시</h3>
+        <div class="code-example">
+            class Dog:<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;def __init__(self, name):<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self.name = name<br><br>
+            &nbsp;&nbsp;&nbsp;&nbsp;def bark(self):<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;print(self.name + "가 짖습니다.")
+        </div>
+        <p>위 코드는 <strong>Dog</strong>라는 클래스를 정의하고, 이름을 입력받아 짖는 메서드를 정의한 예시입니다.</p>
+    </section>
+
+</div>
+
+<footer>
+    <p>© 2025 ASTRID.</p>
+</footer>
+
+<script>
+    // 1. Dark/Light Mode Toggle Button
+    const modeButton = document.createElement('button');
+    modeButton.textContent = "🌙";
+    modeButton.style.position = "fixed";
+    modeButton.style.top = "20px";
+    modeButton.style.right = "20px";
+    modeButton.style.padding = "10px 20px";
+    modeButton.style.backgroundColor = "#2d3e50";
+    modeButton.style.color = "white";
+    modeButton.style.border = "none";
+    modeButton.style.borderRadius = "5px";
+    modeButton.style.cursor = "pointer";
+    modeButton.style.zIndex = "1000";
+    document.body.appendChild(modeButton);
+
+    // Check for saved theme in localStorage
+    if (localStorage.getItem('theme') === 'dark') {
+        document.body.classList.add('dark-mode');
+        modeButton.textContent = "🌞";
+    } else {
+        document.body.classList.remove('dark-mode');
+        modeButton.textContent = "🌙";
+    }
+
+    // Toggle dark/light mode on button click
+    modeButton.onclick = function () {
+        if (document.body.classList.contains('dark-mode')) {
+            document.body.classList.remove('dark-mode');
+            modeButton.textContent = "🌙";
+            localStorage.setItem('theme', 'light');
+        } else {
+            document.body.classList.add('dark-mode');
+            modeButton.textContent = "🌞";
+            localStorage.setItem('theme', 'dark');
+        }
+    };
+
+    // 2. Add CSS for dark mode
+    const darkModeStyles = document.createElement('style');
+    darkModeStyles.innerHTML = `
+        body.dark-mode {
+            background-color: #333;
+            color: #f1f5f8;
+        }
+
+        body.dark-mode header {
+            background-color: #1c2b36;
+        }
+
+        body.dark-mode nav {
+            background-color: #2c3e50;
+        }
+
+        body.dark-mode .container {
+            background-color: #444;
+        }
+
+        body.dark-mode .code-example {
+            background-color: #555;
+            color: #f1f5f8;
+        }
+
+        body.dark-mode footer {
+            background-color: #1c2b36;
+        }
+
+        body.dark-mode a {
+            color: #ecf0f1;
+        }
+
+        body.dark-mode .highlight {
+            background-color: #f39c12;
+        }
+
+        body.dark-mode .note {
+            color: #bdc3c7;
+        }
+
+        body.dark-mode nav a:hover {
+            background-color: #7f8c8d;
+            color: #2d3e50;
+        }
+
+        body.dark-mode .code-example:hover {
+            transform: scale(1.02);
+            box-shadow: 0 4px 15px rgba(255, 255, 255, 0.1);
+        }
+    `;
+    document.head.appendChild(darkModeStyles);
+
+    
+</script>
+<script>
+    const scrollToTopBtn = document.createElement('button');
+    scrollToTopBtn.textContent = "↑";
+    scrollToTopBtn.style.position = "fixed";
+    scrollToTopBtn.style.bottom = "20px";
+    scrollToTopBtn.style.right = "20px";
+    scrollToTopBtn.style.padding = "10px 20px";
+    scrollToTopBtn.style.backgroundColor = "#2d3e50";
+    scrollToTopBtn.style.color = "white";
+    scrollToTopBtn.style.border = "none";
+    scrollToTopBtn.style.borderRadius = "5px";
+    scrollToTopBtn.style.display = "none";
+    document.body.appendChild(scrollToTopBtn);
+
+    window.onscroll = function () {
+        if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
+            scrollToTopBtn.style.display = "block";
+        } else {
+            scrollToTopBtn.style.display = "none";
+        }
+    };
+
+    scrollToTopBtn.onclick = function () {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    };
+
+    const navLinks = document.querySelectorAll('nav a');
+    const navMenu = document.querySelector('nav');
+
+    const hamburger = document.createElement('div');
+    hamburger.style.width = "30px";
+    hamburger.style.height = "30px";
+    hamburger.style.background = "url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAzMCAzMCI+PHBhdGggZD0iTTEyIDBsMCAyOEwzMCAyMkg2bDAtM0wyMCAzTDEyIDBsMCAyOHoiIHN0eWxlPSJmaWxsOiNmZmZmZmYiLz48L3N2Zz4=') no-repeat center center";
+    hamburger.style.cursor = "pointer";
+    hamburger.style.display = "none";
+    document.body.appendChild(hamburger);
+
+    hamburger.addEventListener('click', () => {
+        navMenu.classList.toggle('open');
+    });
+
+    window.addEventListener('resize', () => {
+        if (window.innerWidth > 768) {
+            hamburger.style.display = "none";
+            navMenu.classList.remove('open');
+        } else {
+            hamburger.style.display = "block";
+        }
+    });
+
+
+    const style = document.createElement('style');
+    style.innerHTML = `
+        nav.open {
+            display: flex;
+            flex-direction: column;
+            position: absolute;
+            top: 80px;
+            right: 20px;
+            background-color: #34495e;
+            width: 200px;
+            padding: 20px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+        nav.open a {
+            font-size: 20px;
+            padding: 14px 20px;
+        }
+    `;
+    document.head.appendChild(style);
+
+    // 3. Tooltip on Hover for Key Terms (e.g., for Python)
+    const terms = document.querySelectorAll('.highlight');
+    terms.forEach(term => {
+        term.addEventListener('mouseenter', () => {
+            const tooltip = document.createElement('span');
+            tooltip.textContent = "이 용어는 중요한 개념입니다!";
+            tooltip.style.position = "absolute";
+            tooltip.style.backgroundColor = "#2d3e50";
+            tooltip.style.color = "white";
+            tooltip.style.padding = "5px";
+            tooltip.style.borderRadius = "5px";
+            tooltip.style.fontSize = "14px";
+            tooltip.style.top = `${term.getBoundingClientRect().top - 30}px`;
+            tooltip.style.left = `${term.getBoundingClientRect().left + term.offsetWidth / 2 - 50}px`;
+            document.body.appendChild(tooltip);
+
+            term.addEventListener('mouseleave', () => {
+                tooltip.remove();
+            });
+        });
+    });
+</script>
+
+</body>
+</html>
